@@ -11,8 +11,7 @@ exports.index = (req, res) => {
             })
         }
         res.json({
-            status: "Success",
-            data: data
+            data
         })
     })
 }

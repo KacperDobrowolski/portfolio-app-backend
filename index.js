@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const apiRoutes = require('./routes/api-routes');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 require('dotenv').config();
 
@@ -14,6 +15,8 @@ mongoose.connect(`${db_url}${db_name}`, { useNewUrlParser: true })
     .catch(error => console.log(error));
 
 const db = mongoose.connection;
+
+app.use(cors());
 
 app.use('/api', apiRoutes);
 
